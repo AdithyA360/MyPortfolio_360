@@ -1,0 +1,43 @@
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    transform: rotate(-45deg);
+    z-index: -1; /* Ensure stars are behind other content */
+}
+
+.star {
+    position: absolute;
+    top: var(--top-offset);
+    left: 0;
+    width: var(--star-tail-length);
+    height: var(--star-tail-height);
+    background: rgba(255, 255, 255, 0.8); /* Light star color */
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+
+    /* Randomizing star properties */
+    --star-tail-length: calc(5px + (random() * 5px));
+    --top-offset: calc(random() * 100vh);
+    --fall-duration: calc(6s + (random() * 6s));
+    --fall-delay: calc(random() * 10s);
+}
+
+/* Keyframes for animations */
+@keyframes fall {
+    to {
+        transform: translate3d(-30em, 0, 0);
+    }
+}
+
+@keyframes tail-fade {
+    0%, 50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
