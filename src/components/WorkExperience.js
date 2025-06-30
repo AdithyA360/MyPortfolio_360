@@ -47,6 +47,21 @@ function WorkExperience() {
           <li><strong>Database Development & Performance Tuning:</strong> Optimized SQL queries and database operations in SSMS to enhance system performance, scalability, and data integrity.</li>
         </ul>
       </div>
+
+      <br></br>
+
+      <div className="work-experience-content">
+        <h3>Access Health Care - Application Development </h3>
+        <h4><strong>Location:</strong> Tiruchirappalli</h4>        
+        <h4>
+        <strong>Website:</strong> <a href="https://www.vyapisoft.com/" target="_blank" rel="noopener noreferrer">www.accessheathcare.com</a>
+        </h4>
+        <ul>
+          <li><strong>Inbound & Outbound Operations:</strong> Designed and implemented backend services to manage warehouse inbound and outbound workflows, ensuring efficient order processing and shipment handling.</li>
+          <li><strong>Inventory Management & Optimization:</strong> Developed APIs for real-time inventory tracking, adjustments, and not-put-away processes, improving accuracy and warehouse efficiency.</li>
+          <li><strong>Database Development & Performance Tuning:</strong> Optimized SQL queries and database operations in SSMS to enhance system performance, scalability, and data integrity.</li>
+        </ul>
+      </div>
       
     </section>
   );
