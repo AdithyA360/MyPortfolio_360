@@ -1,80 +1,68 @@
-/* Reset margin and padding for the entire app */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-header {
-  background-color: #282c34;
-  padding: 20px;
+  background: radial-gradient(circle at top left, #1e293b, transparent 40%),
+    radial-gradient(circle at bottom right, #0f172a, transparent 40%);
 }
 
 main {
-  flex-grow: 1; /* Ensures the main content grows to fill available space */
-  padding: 50px;
+  flex-grow: 1;
+  padding-top: var(--nav-height);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-footer {
-  background-color: #282c34;
-  color: white;
-  padding: 20px;
+/* Glassmorphism Utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Utility */
+section {
+  padding: 80px 0;
+  position: relative;
+}
+
+h1,
+h2,
+h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
   text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: flex-end; /* Align items to the right */
+p {
+  line-height: 1.6;
+  color: #cbd5e1;
 }
 
-nav li {
-  margin-left: 20px;
-}
-
-nav a {
-  color: white;
+a {
+  color: var(--primary-color);
   text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #61dafb; /* Highlight color on hover */
+a:hover {
+  color: var(--secondary-color);
 }
 
-/* Main content area */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Align content to the right */
-  padding: 20px;
-  text-align: right;
+button {
+  cursor: pointer;
+  font-family: inherit;
 }
-
-.about-content h1 {
-  margin-bottom: 10px;
-}
-
-.about-details p {
-  margin: 5px 0;
-}
-
-.about-details a {
-  color: #3498db;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.about-details a:hover {
-  text-decoration: underline;
-}
-

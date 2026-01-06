@@ -1,57 +1,80 @@
 import React, { useEffect } from 'react';
-import './Skills.css'; // Ensure you import the CSS for styles
+import { motion } from 'framer-motion';
+import './Skills.css';
 
 function Skills() {
   useEffect(() => {
-    const cursor = document.querySelector('.torch-cursor');
+    const cards = document.querySelectorAll('.skills-card');
 
-    const moveCursor = (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
+    const handleMouseMove = (e) => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
     };
 
-    window.addEventListener('mousemove', moveCursor);
+    document.getElementById('skills').addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', moveCursor);
+      const section = document.getElementById('skills');
+      if (section) section.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
+  const skillCategories = [
+    {
+      title: "Frontend",
+      skills: ["HTML, CSS", "JavaScript", "React JS", "Tailwind CSS", "Bootstrap"]
+    },
+    {
+      title: "Backend",
+      skills: [".NET", "Node.js", "PostgreSQL", "SSMS (SQL Server)", "REST APIs"]
+    },
+    {
+      title: "Cloud / DevOps",
+      skills: ["Linux", "AWS (EC2, S3, VPC)", "Docker", "CI/CD Pipelines"]
+    },
+    {
+      title: "AI / Data",
+      skills: ["AIML", "Python", "Data Analysis", "Computer Vision"]
+    }
+  ];
+
   return (
-    <div className="skills-section">
-      <div className="torch-cursor"></div> {/* Torch cursor element */}
-      <h2>Skills</h2>
-      <div className="skills-divider"></div> {/* White border above skills */}
+    <section id="skills" className="skills-section">
+      <motion.h2
+        className="skills-heading"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        Technical Skills
+      </motion.h2>
+
       <div className="skills-container">
-        <div className="skills-left">
-          <h3>Skills</h3>
-          <ul>
-            <li>Python</li>
-            <li>Linux</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>React JS</li>
-            <li>REST API</li>
-            <li>SQL</li>
-            <li>AIML</li>
-            <li>AWS</li>
-            <li>EC2, S3, VPC, LB, Route 53, IAM</li>
-          </ul>
-        </div>
-        <div className="skills-right">
-          <h3>Tools</h3>
-          <ul>
-            <li>Docker</li>
-            <li>Kubernetes</li>
-            <li>Jenkins</li>
-            <li>GIT</li>
-            <li>Ansible</li>
-            <li>Terraform</li>
-            <li>Power BI</li>
-            <li>PG Admin 4</li>
-          </ul>
-        </div>
+        {skillCategories.map((category, index) => (
+          <motion.div
+            key={index}
+            className="skills-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+          >
+            <h3>{category.title}</h3>
+            <ul>
+              {category.skills.map((skill, idx) => (
+                <li key={idx}>{skill}</li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 

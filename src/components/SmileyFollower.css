@@ -1,0 +1,38 @@
+.smiley-follower {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    pointer-events: none;
+    user-select: none;
+    transition: transform 0.3s ease;
+}
+
+.smiley-follower:hover {
+    transform: scale(1.1);
+}
+
+.smiley-follower .eye {
+    transition: all 0.15s ease-out;
+}
+
+/* Responsive - smaller on mobile */
+@media (max-width: 768px) {
+    .smiley-follower {
+        top: 10px;
+        left: 10px;
+    }
+
+    .smiley-follower svg {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Hide on very small screens to avoid clutter */
+@media (max-width: 480px) {
+    .smiley-follower svg {
+        width: 40px;
+        height: 40px;
+    }
+}

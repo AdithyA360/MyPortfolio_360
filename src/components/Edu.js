@@ -1,92 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './Edu.css';
-import srmImage from '.././Images/srm.jpeg'; 
-import msImage from '.././Images/ms.png'; 
-import greImage from '.././Images/gre.jpeg'; 
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 function Edu() {
-  const [currentEducation, setCurrentEducation] = useState(0);
-  const [fadeClass, setFadeClass] = useState(''); 
-
   const educationData = [
     {
       institution: "SRM Institution of Science and Technology",
       location: "Chennai",
-      percentage: "88.6",
-      duration: "2020-09-01 - 2024-06-07",
+      percentage: "88.6%",
+      duration: "2020 - 2024",
       degree: "B. Tech in Computer Science and Engineering",
-      image: srmImage
+      details: "Graduated with First Class with Distinction."
     },
     {
       institution: "Microsoft in association with Intrnforte",
-      location: "Azure exam",
+      location: "Online",
       percentage: "842/1000",
-      duration: "2023-06-01 - 2023-09-11",
+      duration: "Jun 2023 - Sep 2023",
       degree: "AIML (Microsoft Azure - AI900)",
-      image: msImage
+      details: "Certified in Azure AI Fundamentals."
     },
     {
       institution: "Green's Technology",
       location: "Chennai",
-      degree: "AWS and DevOps",
-      technologies: [
-        "AWS: EC2, S3, VPC, LB, Route 53, IAM",
-        "DevOps: Docker, Kubernetes, Jenkins, GIT, Ansible, Terraform"
-      ],
       duration: "Feb 2024",
-      image: greImage
+      degree: "AWS and DevOps Training",
+      details: "Hands-on training in AWS services (EC2, S3, VPC) and DevOps tools (Docker, Kubernetes, Jenkins)."
     }
   ];
 
-  useEffect(() => {
-    setFadeClass(''); 
-    setTimeout(() => setFadeClass('fade-in'), 100); 
-  }, [currentEducation]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentEducation((prev) => (prev + 1) % educationData.length);
-    }, 5000);
-    return () => clearInterval(interval); 
-  }, [educationData.length]);
-
-  const { institution, location, percentage, duration, degree, image, technologies } = educationData[currentEducation];
-
-  const handleRadioChange = (index) => {
-    setCurrentEducation(index);
-  };
-
   return (
-    <section className="education-section">
-      <div className="education-content">
-        <h2 className={fadeClass}>{currentEducation === 1 ? "Certification" : currentEducation === 2 ? "Training" : "Education"}</h2>
-        <p className={`line-1 ${fadeClass}`}>{institution}</p>
-        <p className={`line-2 ${fadeClass}`}>📍 {location}</p>
-        {percentage && <p className={`line-3 ${fadeClass}`}>Percentage: {percentage}</p>} 
-        <p className={`line-4 ${fadeClass}`}>Duration: {duration}</p>
-        <p className={`line-5 ${fadeClass}`}>Degree: {degree}</p>
-        {technologies && (
-          <div className={`line-6 ${fadeClass}`}>
-            <p>{technologies[0]}</p>
-            <p>{technologies[1]}</p>
-          </div>
-        )}
-      </div>
-      <div className="education-images">
-        <button className="education-image" style={{ backgroundImage: `url(${image})` }} onClick={() => handleRadioChange(currentEducation)}>
-          <span className="button-overlay">View Details</span>
-        </button>
-      </div>
-      <div className="education-radios">
-        {educationData.map((_, index) => (
-          <label key={index}>
-            <input
-              type="radio"
-              name="education"
-              checked={currentEducation === index}
-              onChange={() => handleRadioChange(index)}
-            />
-          </label>
+    <section id="education" className="education-section">
+      <motion.h2
+        className="education-heading"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        Education & Certifications
+      </motion.h2>
+
+      <div className="timeline">
+        {educationData.map((item, index) => (
+          <motion.div
+            key={index}
+            className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <div className="timeline-content">
+              <span className="timeline-date">{item.duration}</span>
+              <h3>{item.institution}</h3>
+              <h4>{item.degree}</h4>
+              <p><FaMapMarkerAlt /> {item.location}</p>
+              {item.percentage && <p>Score: {item.percentage}</p>}
+              <p>{item.details}</p>
+            </div>
+          </motion.div>
         ))}
       </div>
     </section>
