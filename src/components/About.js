@@ -67,9 +67,9 @@ function About() {
           </p>
 
           <div className="contact-info">
-            <div className="info-item">
+            {/* <div className="info-item">
               <FaMapMarkerAlt /> Chennai, Tamilnadu
-            </div>
+            </div> */}
             <div className="info-item">
               <FaPhone /> <a href="tel:+919345524743">+91 9345524743</a>
             </div>

@@ -6,12 +6,11 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 function WorkExperience() {
   const experiences = [
     {
-      company: "Access Health Care",
+      company: "Smarter Technologies",
       role: "Application Development",
       location: "Chennai",
       date: "Apr 2025",
       website: "https://www.accesshealthcare.com/",
-      description: "ArcFlow Inbox & Reports UI is an enterprise-level React application designed for healthcare operations to manage end-to-end claim workflows, audits, allocations, and data-driven reporting. I contributed to building dynamic UI modules, optimizing large data grids, and implementing scalable architecture patterns across multiple high-usage modules.",
       points: [
         "Developed dynamic workflow modules including Inbox Call Sheet, Audit Screens, and Multi-step Claim Processing.",
         "Built a generic reporting engine (ReportsComp) that powers 25+ reports through a single reusable component using dynamic routing & Redux.",
