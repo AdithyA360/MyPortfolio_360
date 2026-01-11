@@ -9,31 +9,26 @@ function WorkExperience() {
       company: "Smarter Technologies",
       role: "Application Development",
       location: "Chennai",
-      date: "Apr 2025",
-      website: "https://www.accesshealthcare.com/",
+      date: "Apr 2025 - Present",
+      website: "https://www.acthicesshealthcare.com/",
       points: [
-        "Developed dynamic workflow modules including Inbox Call Sheet, Audit Screens, and Multi-step Claim Processing.",
-        "Built a generic reporting engine (ReportsComp) that powers 25+ reports through a single reusable component using dynamic routing & Redux.",
-        "Implemented cascading form logic (Call Type → Issue Code → Action Code) with API-driven dependencies.",
-        "Optimized large data grids using DevExtreme virtualization, memoization, and efficient state updates.",
-        "Integrated role-based access control, feature flags, and project-level UI customization.",
-        "Designed reusable service layers & Axios interceptors for secure token-based API communication.",
-        "Worked on Custom Views, enabling users to save filters, columns, and layout preferences.",
-        "Enhanced performance through React Hooks (useMemo, useCallback, React.memo) and Redux Toolkit slices."
+        "Worked on a healthcare claims processing application using React and Redux.",
+        "Developed workflow modules for claims management, audits, and reporting systems.",
+        "Built reusable components and generic reporting engine serving 25+ different reports.",
+        "Implemented role-based access control and customizable user interfaces for different projects.",
+        "Optimized performance for handling large datasets with efficient state management."
       ],
-      techStack: "React 18, Redux Toolkit, Context API, DevExtreme, Axios, React Router, IAM Authentication, JavaScript (ES6+), HTML/CSS",
+      techStack: "React 18, Redux Toolkit, DevExtreme, Axios, React Router, IAM Authentication, JavaScript (ES6+)",
       impact: [
-        "Reduced code duplication by 90% using a generic component architecture.",
-        "Improved grid performance for datasets with thousands of records.",
-        "Streamlined user workflows across claims, audits, reporting, and project configurations.",
-        "Delivered a scalable UI foundation supporting multiple client projects and operational teams."
+        "Reduced code duplication by 90% through component reusability.",
+        "Improved application performance and user experience across multiple client projects."
       ]
     },
     {
       company: "Vyapi",
       role: "Application Development",
       location: "Tiruchirappalli",
-      date: "Jan 2025",
+      date: "Jan 2025 - Mar 2025",
       website: "https://www.vyapisoft.com/",
       points: [
         "Developed backend services using .NET.",
@@ -46,7 +41,7 @@ function WorkExperience() {
       company: "Infoway Group",
       role: "Application Development Intern",
       location: "Chennai",
-      date: "Jan 2024",
+      date: "Jan 2024 - Dec 2024",
       website: "https://www.infowaygroup.com/",
       points: [
         "Developed applications using React.js and Node.js.",
