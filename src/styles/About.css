@@ -54,7 +54,7 @@
   text-align: left;
   margin-bottom: 20px;
   font-size: 2.5rem;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .about-role {
@@ -65,7 +65,7 @@
 }
 
 .about-description {
-  color: #0b172e;
+  color: var(--text-secondary);
   margin-bottom: 30px;
   font-size: 1.05rem;
   line-height: 1.8;
@@ -82,7 +82,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #0f1d34;
+  color: var(--text-color);
 }
 
 .info-item svg {
@@ -91,7 +91,7 @@
 }
 
 .info-item a {
-  color: #4a5568;
+  color: var(--text-secondary);
   transition: color 0.3s ease;
 }
 
@@ -128,7 +128,7 @@
 
 .interest-tag:hover {
   background: var(--primary-color);
-  color: #0f172a;
+  color: var(--card-bg);
   transform: translateY(-2px);
 }
 

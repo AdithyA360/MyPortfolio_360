@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import './About.css';
-import Photo1 from '.././Images/Photo1.jpeg';
-import Photo2 from '.././Images/Photo2.jpeg';
-import Photo3 from '.././Images/Photo3.jpeg';
+import '../styles/About.css';
+import Photo1 from '../assets/Images/Photo1.jpeg';
+import Photo2 from '../assets/Images/Photo2.jpeg';
+import Photo3 from '../assets/Images/Photo3.jpeg';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 
 function About() {

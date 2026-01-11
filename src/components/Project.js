@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './Project.css';
-import a from '../Images/a.jpg';
-import b from '../Images/b.png';
-import c from '../Images/c.jpeg';
-import d from '../Images/d.jpeg';
-import e from '../Images/e.jpg';
+import '../styles/Project.css';
+import a from '../assets/Images/a.jpg';
+import b from '../assets/Images/b.png';
+import c from '../assets/Images/c.jpeg';
+import d from '../assets/Images/d.jpeg';
+import e from '../assets/Images/e.jpg';
 
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);

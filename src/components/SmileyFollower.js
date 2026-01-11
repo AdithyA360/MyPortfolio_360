@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './SmileyFollower.css';
+import '../styles/SmileyFollower.css';
 
 const SmileyFollower = () => {
     const [eyePosition, setEyePosition] = useState({ x: 0, y: 0 });

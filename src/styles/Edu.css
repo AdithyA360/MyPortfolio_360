@@ -8,7 +8,7 @@
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 60px;
-  color: #000000;
+  color: var(--text-color);
 }
 
 .timeline {
@@ -104,7 +104,7 @@
 }
 
 .timeline-date {
-  color: #000000;
+  color: var(--text-color);
   font-weight: 600;
   margin-bottom: 10px;
   display: block;
@@ -113,19 +113,19 @@
 .timeline-content h3 {
   font-size: 1.2rem;
   margin-bottom: 5px;
-  color: #2563eb;
+  color: var(--primary-color);
   font-weight: 600;
 }
 
 .timeline-content h4 {
   font-size: 1rem;
-  color: #000000;
+  color: var(--text-color);
   margin-bottom: 10px;
 }
 
 .timeline-content p {
   font-size: 0.95rem;
-  color: #000000;
+  color: var(--text-secondary);
 }
 
 .timeline-content ul {
@@ -135,34 +135,61 @@
 
 .timeline-content li {
   font-size: 0.9rem;
-  color: #000000;
+  color: var(--text-secondary);
   margin-bottom: 5px;
 }
 
 @media (max-width: 768px) {
+  .education-heading {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .timeline {
+    padding: 0 10px;
+  }
+
   .timeline::after {
-    left: 31px;
+    left: 20px;
   }
 
   .timeline-item {
     width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 10px;
+    box-sizing: border-box;
   }
 
   .timeline-item::before {
-    left: 60px;
-    border: medium solid white;
+    left: 40px;
+    border: medium solid var(--glass-border);
     border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
+    border-color: transparent var(--glass-border) transparent transparent;
   }
 
   .left::after,
   .right::after {
-    left: 21px;
+    left: 10px;
   }
 
   .right {
     left: 0%;
+  }
+
+  .timeline-content {
+    padding: 15px 20px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+    word-wrap: break-word;
+  }
+
+  .timeline-content h4 {
+    font-size: 0.95rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
   }
 }

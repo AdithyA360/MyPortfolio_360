@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import './Skills.css';
+import '../styles/Skills.css';
 
 function Skills() {
   useEffect(() => {

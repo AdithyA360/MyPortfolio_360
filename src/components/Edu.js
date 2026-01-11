@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Edu.css';
+import '../styles/Edu.css';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
 function Edu() {

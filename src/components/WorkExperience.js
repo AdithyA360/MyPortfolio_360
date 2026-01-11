@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './WorkExperience.css';
+import '../styles/WorkExperience.css';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
 function WorkExperience() {

@@ -1,5 +1,5 @@
-import React from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './styles/App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,6 +12,17 @@ import SmileyFollower from './components/SmileyFollower';
 import ClickSpark from './components/ClickSpark';
 
 function App() {
+  const [theme, setTheme] = useState('light'); // Default to light mode
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  };
+
+  // Apply theme to document root
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
   return (
     <ClickSpark
       sparkColor='#ffa500'
@@ -21,9 +32,9 @@ function App() {
       duration={500}
       easing='ease-out'
     >
-      <div className="App">
+      <div className="App" data-theme={theme}>
         <SmileyFollower />
-        <Header />
+        <Header theme={theme} toggleTheme={toggleTheme} />
         <main>
           <Hero />
           <About />

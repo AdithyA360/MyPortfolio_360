@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./Header.css";
+import "../styles/Header.css";
+import ThemeToggle from "./ThemeToggle";
 
-function Header() {
+function Header({ theme, toggleTheme }) {
   const [showAbout, setShowAbout] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -64,6 +65,9 @@ function Header() {
             </a>
           </li>
         </ul>
+
+        {/* Theme Toggle */}
+        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
         {/* Mobile Hamburger */}
         <div
