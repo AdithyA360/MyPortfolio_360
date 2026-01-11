@@ -54,6 +54,7 @@
   text-align: left;
   margin-bottom: 20px;
   font-size: 2.5rem;
+  color: #ffffff;
 }
 
 .about-role {
@@ -64,7 +65,7 @@
 }
 
 .about-description {
-  color: #cbd5e1;
+  color: #0b172e;
   margin-bottom: 30px;
   font-size: 1.05rem;
   line-height: 1.8;
@@ -81,7 +82,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #cbd5e1;
+  color: #0f1d34;
 }
 
 .info-item svg {
@@ -90,7 +91,7 @@
 }
 
 .info-item a {
-  color: #cbd5e1;
+  color: #4a5568;
   transition: color 0.3s ease;
 }
 

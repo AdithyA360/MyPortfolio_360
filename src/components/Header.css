@@ -170,10 +170,11 @@ header {
 .modal-content h2 {
   text-align: left;
   margin-bottom: 20px;
+  color: #b3b3b3;
 }
 
 .modal-content h3 {
-  color: var(--secondary-color);
+  color: #b3b3b3;
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 1.2rem;
@@ -190,7 +191,7 @@ header {
 }
 
 .modal-content p {
-  color: #e2e8f0;
+  color: #bfd2ea;
 }
 
 @keyframes fadeIn {
