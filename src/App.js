@@ -5,8 +5,10 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Edu from './components/Edu';
 import WorkExperience from './components/WorkExperience';
+
 import Skills from './components/Skills';
 import Project from './components/Project';
+import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import SmileyFollower from './components/SmileyFollower';
 import ClickSpark from './components/ClickSpark';
@@ -40,8 +42,10 @@ function App() {
           <About />
           <Edu />
           <WorkExperience />
+
           <Skills />
           <Project />
+          <ContactForm />
         </main>
         <Footer />
       </div>

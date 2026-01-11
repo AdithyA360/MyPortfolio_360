@@ -45,7 +45,6 @@ function Header({ theme, toggleTheme }) {
     <header className={scrolled ? "glass" : ""}>
       <nav className="fixed-nav">
         <div className="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          Adithya
         </div>
 
         {/* Desktop Menu */}
