@@ -1,6 +1,7 @@
 .work-experience-section {
     padding: 80px 0;
     position: relative;
+    overflow-x: hidden;
 }
 
 .work-heading {
@@ -15,28 +16,28 @@
     background-clip: text;
 }
 
+/* Base: Mobile First / Left-Aligned Timeline */
 .work-container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    position: relative;
 }
 
-/* Timeline connector */
+/* Timeline connector (Left aligned by default) */
 .work-container::before {
     content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(180deg,
-            var(--primary-color) 0%,
-            var(--secondary-color) 100%);
+    left: 40px; /* 20px padding + 20px in */
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     opacity: 0.3;
+    border-radius: 2px;
 }
 
 .work-card {
@@ -44,77 +45,49 @@
     backdrop-filter: blur(10px);
     border-radius: 24px;
     padding: 40px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
-}
-
-.work-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.work-card:hover::before {
-    opacity: 1;
-}
-
-.work-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    padding: 2px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    margin-left: 60px; /* Space for the timeline */
+    width: calc(100% - 60px);
 }
 
 .work-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(14, 165, 233, 0.4);
-}
-
-.work-card:hover::after {
-    opacity: 1;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(14, 165, 233, 0.25);
+    border-color: rgba(14, 165, 233, 0.3);
 }
 
 /* Timeline dot */
-.work-card:before {
-    content: '';
+.timeline-dot {
     position: absolute;
-    left: 50%;
-    top: 50px;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background: var(--primary-color);
+    left: -60px; /* Back to the line (margin-left: 60px) */
+    top: 40px;
+    width: 24px;
+    height: 24px;
+    background: var(--bg-color, #0f172a);
+    border: 4px solid var(--primary-color);
     border-radius: 50%;
-    border: 4px solid var(--bg-color);
+    transform: translateX(-50%);
     z-index: 10;
-    box-shadow: 0 0 20px var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.work-card:hover .timeline-dot {
+    background: var(--primary-color);
+    box-shadow: 0 0 25px var(--primary-color);
+    transform: translateX(-50%) scale(1.2);
 }
 
 .work-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     flex-wrap: wrap;
     gap: 15px;
-    position: relative;
 }
 
 .work-header h3 {
@@ -147,6 +120,7 @@
     font-size: 1rem;
     font-weight: 600;
     margin-top: 5px;
+    margin-bottom: 5px;
     padding: 6px 16px;
     background: rgba(14, 165, 233, 0.15);
     border-radius: 20px;
@@ -187,7 +161,6 @@
 .work-link:hover {
     background: rgba(14, 165, 233, 0.2);
     transform: translateX(5px);
-    text-decoration: none;
 }
 
 .work-description {
@@ -271,78 +244,167 @@
     font-weight: 500;
 }
 
-.work-impact-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-    display: grid;
-    gap: 12px;
-}
-
 .work-impact-list li {
-    position: relative;
-    padding: 12px 12px 12px 36px;
-    margin-bottom: 0;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    font-weight: 600;
-    font-size: 1rem;
     background: rgba(139, 92, 246, 0.08);
-    border-radius: 10px;
     border-left: 3px solid var(--secondary-color);
-    transition: all 0.3s ease;
-}
-
-.work-impact-list li:hover {
-    background: rgba(139, 92, 246, 0.15);
-    transform: translateX(5px);
 }
 
 .work-impact-list li::before {
     content: "✓";
-    position: absolute;
-    left: 14px;
-    top: 12px;
     color: var(--secondary-color);
-    font-weight: bold;
     font-size: 1.1rem;
 }
 
+.mobile-expand-btn {
+    display: none;
+}
+
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .work-heading {
         font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .work-container {
+        gap: 20px;
+    }
+    
+    .work-container::before {
+        left: 20px; /* closer to edge */
     }
 
     .work-card {
-        padding: 30px 24px;
+        margin-left: 30px;
+        width: calc(100% - 30px);
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+
+    .timeline-dot {
+        left: -30px;
+        width: 16px;
+        height: 16px;
+        top: 25px;
     }
 
     .work-header {
         flex-direction: column;
+        gap: 8px;
+        margin-bottom: 15px;
     }
 
     .work-header h3 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+        margin-bottom: 4px;
+    }
+    
+    .work-company {
+        font-size: 1rem;
+        margin-bottom: 4px;
+    }
+    
+    .work-date {
+        padding: 4px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .work-location {
+        font-size: 0.9rem;
+    }
+    
+    .work-description {
+        margin: 15px 0;
+        padding: 12px 15px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .work-section-title {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
     }
 
-    .work-container::before {
-        left: 20px;
+    .work-details {
+        display: none;
+        animation: fadeInDetails 0.3s ease;
+    }
+    
+    .work-details.expanded {
+        display: block;
     }
 
-    .work-card:before {
-        left: 20px;
-        transform: none;
+    .mobile-expand-btn {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        margin-top: 20px;
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        color: var(--text-color);
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+    
+    .mobile-expand-btn:active {
+        background: rgba(14, 165, 233, 0.2);
+        transform: scale(0.98);
+    }
+
+    @keyframes fadeInDetails {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .work-card ul {
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .work-tech-stack {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-top: 10px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
+    .work-container::before {
+        left: 15px;
+    }
     .work-card {
-        padding: 24px 20px;
+        margin-left: 25px;
+        width: calc(100% - 25px);
+        padding: 15px 12px;
+    }
+    
+    .timeline-dot {
+        left: -25px;
+        top: 20px;
+    }
+
+    .work-description {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin: 10px 0;
     }
 
     .work-card li,
     .work-impact-list li {
-        padding: 12px 12px 12px 30px;
-        font-size: 0.95rem;
+        padding: 10px 10px 10px 28px;
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    .work-card li::before, .work-impact-list li::before {
+        top: 10px;
     }
 }

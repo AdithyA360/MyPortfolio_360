@@ -1,0 +1,200 @@
+.flappy-section {
+    min-height: 100vh;
+    padding: 100px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.flappy-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.flappy-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    background: linear-gradient(135deg, #fcd34d, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.flappy-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.flappy-container {
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.flappy-game-area {
+    position: relative;
+    background: linear-gradient(180deg, #38bdf8 0%, #0ea5e9 100%);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Bird Styles */
+.flappy-bird {
+    position: absolute;
+    background-color: #fbbf24;
+    border-radius: 50%;
+    border: 2px solid #b45309;
+    z-index: 10;
+    transition: transform 0.1s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.bird-eye {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+.bird-eye::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    width: 3px;
+    height: 3px;
+    background: black;
+    border-radius: 50%;
+}
+
+.bird-wing {
+    position: absolute;
+    top: 14px;
+    left: 2px;
+    width: 14px;
+    height: 10px;
+    background: #fde68a;
+    border-radius: 50% 50% 50% 50%;
+    border: 1px solid #b45309;
+    animation: flap 0.3s infinite alternate ease-in-out;
+}
+
+@keyframes flap {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-20deg); }
+}
+
+/* Pipe Styles */
+.flappy-pipe {
+    position: absolute;
+    background: linear-gradient(90deg, #22c55e, #16a34a, #15803d);
+    border: 2px solid #064e3b;
+    z-index: 5;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+}
+
+.pipe-cap {
+    position: absolute;
+    width: calc(100% + 10px);
+    left: -5px;
+    height: 25px;
+    background: linear-gradient(90deg, #22c55e, #16a34a, #15803d);
+    border: 2px solid #064e3b;
+}
+
+.top-cap {
+    bottom: -2px;
+}
+
+.bottom-cap {
+    top: -2px;
+}
+
+/* UI Elements */
+.flappy-score {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 20;
+    pointer-events: none;
+}
+
+.flappy-start-msg {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    z-index: 20;
+    pointer-events: none;
+    animation: pulse 1.5s infinite;
+    text-align: center;
+    width: 100%;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+.flappy-game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px 40px;
+    border-radius: 15px;
+    border: 2px solid #fbbf24;
+    text-align: center;
+    z-index: 30;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.flappy-game-over h2 {
+    color: #ef4444;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.flappy-game-over p {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.flappy-game-over button {
+    background: linear-gradient(135deg, #fcd34d, #f59e0b);
+    color: #000;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.flappy-game-over button:hover {
+    transform: scale(1.1);
+}

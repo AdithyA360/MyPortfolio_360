@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -12,6 +13,7 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import SmileyFollower from './components/SmileyFollower';
 import ClickSpark from './components/ClickSpark';
+import Game from './components/Game';
 
 function App() {
   const [theme, setTheme] = useState('light'); // Default to light mode
@@ -38,14 +40,20 @@ function App() {
         <SmileyFollower />
         <Header theme={theme} toggleTheme={toggleTheme} />
         <main>
-          <Hero />
-          <About />
-          <Edu />
-          <WorkExperience />
-
-          <Skills />
-          <Project />
-          <ContactForm />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <About />
+                <Edu />
+                <WorkExperience />
+                <Skills />
+                <Project />
+                <ContactForm />
+              </>
+            } />
+            <Route path="/game" element={<Game />} />
+          </Routes>
         </main>
         <Footer />
       </div>

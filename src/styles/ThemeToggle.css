@@ -8,28 +8,65 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     color: var(--text-color);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
 }
 
-.theme-toggle:hover {
-    transform: rotate(20deg) scale(1.1);
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+/* Light mode (Moon icon displayed) */
+[data-theme='light'] .theme-toggle {
+    color: #6366f1; /* Cool indigo for moon */
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+[data-theme='light'] .theme-toggle:hover {
+    transform: rotate(-15deg) scale(1.1);
+    color: #4f46e5;
+    border-color: #6366f1;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), inset 0 0 10px rgba(99, 102, 241, 0.1);
+}
+
+/* Dark mode (Sun icon displayed) */
+[data-theme='dark'] .theme-toggle {
+    color: #fbbf24; /* Warm yellow for sun */
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+[data-theme='dark'] .theme-toggle:hover {
+    transform: rotate(90deg) scale(1.15);
+    color: #f59e0b;
+    border-color: #fbbf24;
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.6), inset 0 0 15px rgba(251, 191, 36, 0.2);
 }
 
 .theme-toggle:active {
-    transform: rotate(20deg) scale(0.95);
+    transform: scale(0.9) !important;
+}
+
+/* Add a subtle pulse animation in dark mode for the sun */
+@keyframes sunPulse {
+    0% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.2); }
+    50% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.5); }
+    100% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.2); }
+}
+
+[data-theme='dark'] .theme-toggle {
+    animation: sunPulse 3s infinite alternate;
+}
+
+[data-theme='dark'] .theme-toggle:hover {
+    animation: none;
 }
 
 @media (max-width: 768px) {
     .theme-toggle {
         width: 40px;
         height: 40px;
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }

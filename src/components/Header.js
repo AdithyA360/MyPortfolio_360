@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { FaGamepad, FaHome } from "react-icons/fa";
 import "../styles/Header.css";
 import ThemeToggle from "./ThemeToggle";
 
@@ -28,9 +30,31 @@ function Header({ theme, toggleTheme }) {
     }, 300);
   };
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     setMenuOpen(false);
+    
+    // If we're on the game page, we need to navigate home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait a moment for the home page to render before scrolling
+      setTimeout(() => {
+        if (targetId === "home") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }, 100);
+      return;
+    }
+
+    // Already on home page
     if (targetId === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -56,7 +80,7 @@ function Header({ theme, toggleTheme }) {
           <li><a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a></li>
           <li>
             <a
-              href="https://drive.google.com/file/d/1fp2XloW5GOAksHC2MmailuOZ84rivofY/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Z00J6VGq_PVKlwAUeAcDJ41vX8K3KY41/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -64,9 +88,21 @@ function Header({ theme, toggleTheme }) {
             </a>
           </li>
         </ul>
-
-        {/* Theme Toggle */}
-        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        
+        <div className="header-actions">
+          {location.pathname === '/game' ? (
+            <Link to="/" className="game-icon" aria-label="Back to Portfolio" title="Back to Portfolio">
+              <FaHome />
+            </Link>
+          ) : (
+            <Link to="/game" className="game-icon" aria-label="Play Game" title="Play a Game!">
+              <FaGamepad />
+            </Link>
+          )}
+          
+          {/* Theme Toggle */}
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        </div>
 
         {/* Mobile Hamburger */}
         <div
