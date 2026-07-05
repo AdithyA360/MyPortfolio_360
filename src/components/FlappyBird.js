@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion } from 'framer-motion';
 import '../styles/FlappyBird.css';
 
 const GRAVITY = 0.5;
