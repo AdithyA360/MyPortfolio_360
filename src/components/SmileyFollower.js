@@ -4,7 +4,6 @@ import '../styles/SmileyFollower.css';
 const SmileyFollower = () => {
     const [eyePosition, setEyePosition] = useState({ x: 0, y: 0 });
     const [expression, setExpression] = useState('normal'); // normal, excited, thinking, searching
-    const [lastMoveTime, setLastMoveTime] = useState(Date.now());
     const lastPositionRef = useRef({ x: 0, y: 0, time: Date.now() });
     const idleTimerRef = useRef(null);
     const searchAnimationRef = useRef(null);
@@ -50,7 +49,6 @@ const SmileyFollower = () => {
                 y: Math.sin(angle) * maxDistance * distance_normalized
             });
 
-            setLastMoveTime(now);
             lastPositionRef.current = { x: e.clientX, y: e.clientY, time: now };
 
             // Reset idle timer

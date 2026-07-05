@@ -132,6 +132,7 @@ function TicTacToe({ onBack }) {
       }, 500); // 500ms delay to feel like the AI is "thinking"
       return () => clearTimeout(timer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [xIsNext, board, winner]);
 
   const resetGame = () => {

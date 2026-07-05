@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import '../styles/Hero.css';
-import BG1 from '../assets/Images/BG1.jpeg';
+import HeroImg from '../assets/Images/Hero1.png';
 
 const Hero = () => {
     return (

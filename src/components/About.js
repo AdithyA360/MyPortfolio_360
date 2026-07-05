@@ -4,7 +4,7 @@ import '../styles/About.css';
 import Photo1 from '../assets/Images/Photo1.jpeg';
 import Photo2 from '../assets/Images/Photo2.jpeg';
 import Photo3 from '../assets/Images/Photo3.jpeg';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 
 function About() {
   const [currentPhoto, setCurrentPhoto] = useState(0);
@@ -25,6 +25,7 @@ function About() {
     Promise.all(imagePromises)
       .then(() => setImagesLoaded(true))
       .catch((err) => console.error('Error loading images:', err));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
